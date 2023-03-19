@@ -18,11 +18,11 @@ for i=1:length(x)
     for j=1:N
         w_am=w2_am+(k-0.5)*dw_am;
         k=k+1;
-        s_am=(0.25*1.2107*0.8245^2)/((w_am^2+0.8245^2)*w_am^2);%PSD function for grade 6
+        s_am=(0.25*1.2107*0.8245^2)/((w_am^2+0.8245^2)*w_am^2);%PSD function for grade 1
         ak_am=2*sqrt(s_am*dw_am);
         n_am(p,1)=n_am(p,1)+ak_am*sin(w_am*x(i)+ph(j));%track irregularitty value in cm
     end
-    n(p,1)=0.01*n_am(p,1);
+    n(p,1)=0.01*n_am(p,1); % track irregularitty value in m
     p=p+1;
 end  
 plot(x,n)
